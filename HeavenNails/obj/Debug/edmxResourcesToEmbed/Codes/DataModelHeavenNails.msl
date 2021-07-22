@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="HeavenNailsModelStoreContainer" CdmEntityContainer="HeavenNailsEntitiesModels">
+    <EntitySetMapping Name="tb_Card">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_Card">
+        <MappingFragment StoreEntitySet="tb_Card">
+          <ScalarProperty Name="CIndex" ColumnName="CIndex" />
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="ScanTime" ColumnName="ScanTime" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ImportBills">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_ImportBills">
+        <MappingFragment StoreEntitySet="tb_ImportBills">
+          <ScalarProperty Name="IMIndex" ColumnName="IMIndex" />
+          <ScalarProperty Name="SUIndex" ColumnName="SUIndex" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+          <ScalarProperty Name="ImageBill" ColumnName="ImageBill" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Item">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_Item">
+        <MappingFragment StoreEntitySet="tb_Item">
+          <ScalarProperty Name="IIndex" ColumnName="IIndex" />
+          <ScalarProperty Name="NameItem" ColumnName="NameItem" />
+          <ScalarProperty Name="ImportPrice" ColumnName="ImportPrice" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="IMIndex" ColumnName="IMIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ItemSoldReciept">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_ItemSoldReciept">
+        <MappingFragment StoreEntitySet="tb_ItemSoldReciept">
+          <ScalarProperty Name="SOIndex" ColumnName="SOIndex" />
+          <ScalarProperty Name="SellingPrice" ColumnName="SellingPrice" />
+          <ScalarProperty Name="QIIndex" ColumnName="QIIndex" />
+          <ScalarProperty Name="RIndex" ColumnName="RIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_LoyaltyCard">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_LoyaltyCard">
+        <MappingFragment StoreEntitySet="tb_LoyaltyCard">
+          <ScalarProperty Name="LIndex" ColumnName="LIndex" />
+          <ScalarProperty Name="Addition" ColumnName="Addition" />
+          <ScalarProperty Name="Discount" ColumnName="Discount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_QuantityItem">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_QuantityItem">
+        <MappingFragment StoreEntitySet="tb_QuantityItem">
+          <ScalarProperty Name="BarCode" ColumnName="BarCode" />
+          <ScalarProperty Name="Sold" ColumnName="Sold" />
+          <ScalarProperty Name="IIndex" ColumnName="IIndex" />
+          <ScalarProperty Name="QIIndex" ColumnName="QIIndex" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Receipt">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_Receipt">
+        <MappingFragment StoreEntitySet="tb_Receipt">
+          <ScalarProperty Name="RIndex" ColumnName="RIndex" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Total" ColumnName="Total" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ServiceReciept">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_ServiceReciept">
+        <MappingFragment StoreEntitySet="tb_ServiceReciept">
+          <ScalarProperty Name="SRIndex" ColumnName="SRIndex" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="RIndex" ColumnName="RIndex" />
+          <ScalarProperty Name="SIndex" ColumnName="SIndex" />
+          <ScalarProperty Name="NameService" ColumnName="NameService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Sevices">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_Sevices">
+        <MappingFragment StoreEntitySet="tb_Sevices">
+          <ScalarProperty Name="SIndex" ColumnName="SIndex" />
+          <ScalarProperty Name="NameService" ColumnName="NameService" />
+          <ScalarProperty Name="Cost" ColumnName="Cost" />
+          <ScalarProperty Name="Active" ColumnName="Active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Supplier">
+      <EntityTypeMapping TypeName="HeavenNailsModel.tb_Supplier">
+        <MappingFragment StoreEntitySet="tb_Supplier">
+          <ScalarProperty Name="SUIndex" ColumnName="SUIndex" />
+          <ScalarProperty Name="NameCompany" ColumnName="NameCompany" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="OtherInf" ColumnName="OtherInf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

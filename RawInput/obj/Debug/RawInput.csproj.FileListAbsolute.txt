@@ -1,0 +1,6 @@
+G:\Heaven Nails project\HeavenNails\RawInput\bin\Debug\RawInput.dll
+G:\Heaven Nails project\HeavenNails\RawInput\bin\Debug\RawInput.pdb
+G:\Heaven Nails project\HeavenNails\RawInput\obj\Debug\RawInput.csprojAssemblyReference.cache
+G:\Heaven Nails project\HeavenNails\RawInput\obj\Debug\RawInput.csproj.CoreCompileInputs.cache
+G:\Heaven Nails project\HeavenNails\RawInput\obj\Debug\RawInput.dll
+G:\Heaven Nails project\HeavenNails\RawInput\obj\Debug\RawInput.pdb

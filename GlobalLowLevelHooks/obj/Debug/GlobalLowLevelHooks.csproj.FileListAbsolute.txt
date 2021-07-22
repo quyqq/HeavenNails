@@ -1,0 +1,12 @@
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\bin\Debug\GlobalLowLevelHooks.dll
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\bin\Debug\GlobalLowLevelHooks.pdb
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.csprojAssemblyReference.cache
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.csproj.CoreCompileInputs.cache
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.dll
+C:\Users\QuyIT\Desktop\Global-Low-Level-Key-Board-And-Mouse-Hook-master\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.pdb
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\bin\Debug\GlobalLowLevelHooks.dll
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\bin\Debug\GlobalLowLevelHooks.pdb
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.csprojAssemblyReference.cache
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.csproj.CoreCompileInputs.cache
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.dll
+G:\Heaven Nails project\HeavenNails\GlobalLowLevelHooks\obj\Debug\GlobalLowLevelHooks.pdb

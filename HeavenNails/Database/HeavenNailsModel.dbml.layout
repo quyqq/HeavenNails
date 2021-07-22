@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 17.875" name="HeavenNailsModel">
+  <DataContextMoniker Name="/HeavenNailsModelDataContext" />
+  <nestedChildShapes>
+    <classShape Id="ddb415f4-a96e-45a9-aea7-37cc7d8e7842" absoluteBounds="3.75, 7.25, 2, 1.5785953776041675">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_Card" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5f4d003d-aa52-4539-92fa-0860943b917a" absoluteBounds="3.765, 7.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a335371-eff9-4995-9d99-d02395060807" absoluteBounds="2, 15.625, 2, 1.9631982421874987">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_Supplier" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fab8e184-f943-471d-bb4f-950bd29e1a8b" absoluteBounds="2.015, 16.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f27a050b-aa75-4821-8926-7db59cb8d09e" absoluteBounds="1.75, 12.875, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_ImportBill" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cf0750c-c90c-4a8a-b0a9-11e95c66c368" absoluteBounds="1.7650000000000001, 13.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="61d9cb56-5b16-4ad2-8dd6-2c83bbb72573" absoluteBounds="1.5, 9.75, 2, 1.7708968098958344">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_Item" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a815d6fc-8019-460e-9d8a-b47430cb54fb" absoluteBounds="1.5150000000000001, 10.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6dcb7ac8-881a-4779-b903-f162f802c0ed" absoluteBounds="3.5, 3.75, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_ItemSoldReciept" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b63eae92-8e56-4665-a400-a321b00b00d9" absoluteBounds="3.515, 4.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5b8f366e-1971-4b2e-8f75-753a7cffede8" absoluteBounds="6.75, 2.25, 2, 1.3862939453125">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_LoyaltyCard" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26f4bef0-7163-43af-8ad1-96bfc347fb73" absoluteBounds="6.765, 2.71, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="6811b25b-6903-49c9-b576-8e41fdce3788" absoluteBounds="0.75, 6.875, 2, 1.5785953776041675">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_QuantityItem" />
+      <nestedChildShapes>
+        <elementListCompartment Id="33e51b7d-dd39-465d-9282-93415af9bf51" absoluteBounds="0.765, 7.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="66f852c7-6796-4771-a2b8-ca6cc585a8dd" absoluteBounds="0.75, 3.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_Receipt" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dc9d070-a35d-4dc9-b928-8b2d6c489ca3" absoluteBounds="0.765, 3.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="20faa26c-c307-483d-86c9-0b65b25933f2" absoluteBounds="3.5, 0.75, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_ServiceReciept" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e46aadc4-540e-49df-b939-76cda66a7b25" absoluteBounds="3.515, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4dd627d2-633e-476a-b40c-b6b66b7bf1ac" absoluteBounds="0.75, 1, 2, 1.5785953776041664">
+      <DataClassMoniker Name="/HeavenNailsModelDataContext/tb_Sevice" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5b345867-8bdc-4ea3-918d-def5f515fc7f" absoluteBounds="0.765, 1.46, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.875 : 15.625); (2.875 : 14.4535953776042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_Supplier/tb_Supplier_tb_ImportBill" />
+      <nodes>
+        <classShapeMoniker Id="1a335371-eff9-4995-9d99-d02395060807" />
+        <classShapeMoniker Id="f27a050b-aa75-4821-8926-7db59cb8d09e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.625 : 12.875); (2.625 : 11.5208968098958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_ImportBill/tb_ImportBill_tb_Item" />
+      <nodes>
+        <classShapeMoniker Id="f27a050b-aa75-4821-8926-7db59cb8d09e" />
+        <classShapeMoniker Id="61d9cb56-5b16-4ad2-8dd6-2c83bbb72573" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 7.03125); (3.59375 : 7.03125); (3.59375 : 5.52089680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_QuantityItem/tb_QuantityItem_tb_ItemSoldReciept" />
+      <nodes>
+        <classShapeMoniker Id="6811b25b-6903-49c9-b576-8e41fdce3788" />
+        <classShapeMoniker Id="6dcb7ac8-881a-4779-b903-f162f802c0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.125 : 9.75); (2.125 : 8.45359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_Item/tb_Item_tb_QuantityItem" />
+      <nodes>
+        <classShapeMoniker Id="61d9cb56-5b16-4ad2-8dd6-2c83bbb72573" />
+        <classShapeMoniker Id="6811b25b-6903-49c9-b576-8e41fdce3788" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 4.63544840494792); (3.5 : 4.63544840494792)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_Receipt/tb_Receipt_tb_ItemSoldReciept" />
+      <nodes>
+        <classShapeMoniker Id="66f852c7-6796-4771-a2b8-ca6cc585a8dd" />
+        <classShapeMoniker Id="6dcb7ac8-881a-4779-b903-f162f802c0ed" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 3.5); (3.125 : 3.125); (3.125 : 1.63544840494792); (3.5 : 1.63544840494792)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_Receipt/tb_Receipt_tb_ServiceReciept" />
+      <nodes>
+        <classShapeMoniker Id="66f852c7-6796-4771-a2b8-ca6cc585a8dd" />
+        <classShapeMoniker Id="20faa26c-c307-483d-86c9-0b65b25933f2" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.75 : 2.14067260742187); (3.04166666666667 : 2.14067260742187 : JumpStart); (3.20833333333333 : 2.14067260742187 : JumpEnd); (3.5 : 2.14067260742187)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HeavenNailsModelDataContext/tb_Sevice/tb_Sevice_tb_ServiceReciept" />
+      <nodes>
+        <classShapeMoniker Id="4dd627d2-633e-476a-b40c-b6b66b7bf1ac" />
+        <classShapeMoniker Id="20faa26c-c307-483d-86c9-0b65b25933f2" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

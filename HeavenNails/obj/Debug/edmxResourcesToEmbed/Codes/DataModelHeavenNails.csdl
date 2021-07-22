@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeavenNailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tb_Card">
+    <Key>
+      <PropertyRef Name="CIndex" />
+    </Key>
+    <Property Name="CIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BarCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ScanTime" Type="Int32" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tb_ImportBills">
+    <Key>
+      <PropertyRef Name="IMIndex" />
+    </Key>
+    <Property Name="IMIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SUIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ImageBill" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="tb_Supplier" Relationship="Self.FK_tb_ImportBills_tb_Supplier" FromRole="tb_ImportBills" ToRole="tb_Supplier" />
+    <NavigationProperty Name="tb_Item" Relationship="Self.FK_tb_Item_tb_ImportBills" FromRole="tb_ImportBills" ToRole="tb_Item" />
+  </EntityType>
+  <EntityType Name="tb_Item">
+    <Key>
+      <PropertyRef Name="IIndex" />
+    </Key>
+    <Property Name="IIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameItem" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ImportPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SellingPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="IMIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="tb_ImportBills" Relationship="Self.FK_tb_Item_tb_ImportBills" FromRole="tb_Item" ToRole="tb_ImportBills" />
+    <NavigationProperty Name="tb_QuantityItem" Relationship="Self.FK_tb_QuantityItem_tb_Item" FromRole="tb_Item" ToRole="tb_QuantityItem" />
+  </EntityType>
+  <EntityType Name="tb_ItemSoldReciept">
+    <Key>
+      <PropertyRef Name="SOIndex" />
+    </Key>
+    <Property Name="SOIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SellingPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="QIIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="RIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="tb_Receipt" Relationship="Self.FK_tb_ItemSold_tb_Receipt" FromRole="tb_ItemSoldReciept" ToRole="tb_Receipt" />
+    <NavigationProperty Name="tb_QuantityItem" Relationship="Self.FK_tb_ItemSoldReciept_tb_QuantityItem" FromRole="tb_ItemSoldReciept" ToRole="tb_QuantityItem" />
+  </EntityType>
+  <EntityType Name="tb_LoyaltyCard">
+    <Key>
+      <PropertyRef Name="LIndex" />
+    </Key>
+    <Property Name="LIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Addition" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Discount" Type="Double" />
+  </EntityType>
+  <EntityType Name="tb_QuantityItem">
+    <Key>
+      <PropertyRef Name="QIIndex" />
+    </Key>
+    <Property Name="BarCode" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Sold" Type="Boolean" Nullable="false" />
+    <Property Name="IIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="QIIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="tb_Item" Relationship="Self.FK_tb_QuantityItem_tb_Item" FromRole="tb_QuantityItem" ToRole="tb_Item" />
+    <NavigationProperty Name="tb_ItemSoldReciept" Relationship="Self.FK_tb_ItemSoldReciept_tb_QuantityItem" FromRole="tb_QuantityItem" ToRole="tb_ItemSoldReciept" />
+  </EntityType>
+  <EntityType Name="tb_Receipt">
+    <Key>
+      <PropertyRef Name="RIndex" />
+    </Key>
+    <Property Name="RIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Time" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Total" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <NavigationProperty Name="tb_ItemSoldReciept" Relationship="Self.FK_tb_ItemSold_tb_Receipt" FromRole="tb_Receipt" ToRole="tb_ItemSoldReciept" />
+    <NavigationProperty Name="tb_ServiceReciept" Relationship="Self.FK_tb_ServiceReciept_tb_Receipt" FromRole="tb_Receipt" ToRole="tb_ServiceReciept" />
+  </EntityType>
+  <EntityType Name="tb_ServiceReciept">
+    <Key>
+      <PropertyRef Name="SRIndex" />
+    </Key>
+    <Property Name="SRIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="RIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="NameService" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tb_Receipt" Relationship="Self.FK_tb_ServiceReciept_tb_Receipt" FromRole="tb_ServiceReciept" ToRole="tb_Receipt" />
+    <NavigationProperty Name="tb_Sevices" Relationship="Self.FK_tb_ServiceReciept_tb_Sevices" FromRole="tb_ServiceReciept" ToRole="tb_Sevices" />
+  </EntityType>
+  <EntityType Name="tb_Sevices">
+    <Key>
+      <PropertyRef Name="SIndex" />
+    </Key>
+    <Property Name="SIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameService" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="Active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="tb_ServiceReciept" Relationship="Self.FK_tb_ServiceReciept_tb_Sevices" FromRole="tb_Sevices" ToRole="tb_ServiceReciept" />
+  </EntityType>
+  <EntityType Name="tb_Supplier">
+    <Key>
+      <PropertyRef Name="SUIndex" />
+    </Key>
+    <Property Name="SUIndex" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NameCompany" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="EMail" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Adress" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="OtherInf" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tb_ImportBills" Relationship="Self.FK_tb_ImportBills_tb_Supplier" FromRole="tb_Supplier" ToRole="tb_ImportBills" />
+  </EntityType>
+  <Association Name="FK_tb_ImportBills_tb_Supplier">
+    <End Role="tb_Supplier" Type="Self.tb_Supplier" Multiplicity="1" />
+    <End Role="tb_ImportBills" Type="Self.tb_ImportBills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Supplier">
+        <PropertyRef Name="SUIndex" />
+      </Principal>
+      <Dependent Role="tb_ImportBills">
+        <PropertyRef Name="SUIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Item_tb_ImportBills">
+    <End Role="tb_ImportBills" Type="Self.tb_ImportBills" Multiplicity="1" />
+    <End Role="tb_Item" Type="Self.tb_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ImportBills">
+        <PropertyRef Name="IMIndex" />
+      </Principal>
+      <Dependent Role="tb_Item">
+        <PropertyRef Name="IMIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_QuantityItem_tb_Item">
+    <End Role="tb_Item" Type="Self.tb_Item" Multiplicity="1" />
+    <End Role="tb_QuantityItem" Type="Self.tb_QuantityItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Item">
+        <PropertyRef Name="IIndex" />
+      </Principal>
+      <Dependent Role="tb_QuantityItem">
+        <PropertyRef Name="IIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ItemSold_tb_Receipt">
+    <End Role="tb_Receipt" Type="Self.tb_Receipt" Multiplicity="1" />
+    <End Role="tb_ItemSoldReciept" Type="Self.tb_ItemSoldReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Receipt">
+        <PropertyRef Name="RIndex" />
+      </Principal>
+      <Dependent Role="tb_ItemSoldReciept">
+        <PropertyRef Name="RIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ItemSoldReciept_tb_QuantityItem">
+    <End Role="tb_QuantityItem" Type="Self.tb_QuantityItem" Multiplicity="1" />
+    <End Role="tb_ItemSoldReciept" Type="Self.tb_ItemSoldReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_QuantityItem">
+        <PropertyRef Name="QIIndex" />
+      </Principal>
+      <Dependent Role="tb_ItemSoldReciept">
+        <PropertyRef Name="QIIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ServiceReciept_tb_Receipt">
+    <End Role="tb_Receipt" Type="Self.tb_Receipt" Multiplicity="1" />
+    <End Role="tb_ServiceReciept" Type="Self.tb_ServiceReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Receipt">
+        <PropertyRef Name="RIndex" />
+      </Principal>
+      <Dependent Role="tb_ServiceReciept">
+        <PropertyRef Name="RIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ServiceReciept_tb_Sevices">
+    <End Role="tb_Sevices" Type="Self.tb_Sevices" Multiplicity="1" />
+    <End Role="tb_ServiceReciept" Type="Self.tb_ServiceReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Sevices">
+        <PropertyRef Name="SIndex" />
+      </Principal>
+      <Dependent Role="tb_ServiceReciept">
+        <PropertyRef Name="SIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HeavenNailsEntitiesModels" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tb_Card" EntityType="Self.tb_Card" />
+    <EntitySet Name="tb_ImportBills" EntityType="Self.tb_ImportBills" />
+    <EntitySet Name="tb_Item" EntityType="Self.tb_Item" />
+    <EntitySet Name="tb_ItemSoldReciept" EntityType="Self.tb_ItemSoldReciept" />
+    <EntitySet Name="tb_LoyaltyCard" EntityType="Self.tb_LoyaltyCard" />
+    <EntitySet Name="tb_QuantityItem" EntityType="Self.tb_QuantityItem" />
+    <EntitySet Name="tb_Receipt" EntityType="Self.tb_Receipt" />
+    <EntitySet Name="tb_ServiceReciept" EntityType="Self.tb_ServiceReciept" />
+    <EntitySet Name="tb_Sevices" EntityType="Self.tb_Sevices" />
+    <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" />
+    <AssociationSet Name="FK_tb_ImportBills_tb_Supplier" Association="Self.FK_tb_ImportBills_tb_Supplier">
+      <End Role="tb_Supplier" EntitySet="tb_Supplier" />
+      <End Role="tb_ImportBills" EntitySet="tb_ImportBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Item_tb_ImportBills" Association="Self.FK_tb_Item_tb_ImportBills">
+      <End Role="tb_ImportBills" EntitySet="tb_ImportBills" />
+      <End Role="tb_Item" EntitySet="tb_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_QuantityItem_tb_Item" Association="Self.FK_tb_QuantityItem_tb_Item">
+      <End Role="tb_Item" EntitySet="tb_Item" />
+      <End Role="tb_QuantityItem" EntitySet="tb_QuantityItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ItemSold_tb_Receipt" Association="Self.FK_tb_ItemSold_tb_Receipt">
+      <End Role="tb_Receipt" EntitySet="tb_Receipt" />
+      <End Role="tb_ItemSoldReciept" EntitySet="tb_ItemSoldReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ItemSoldReciept_tb_QuantityItem" Association="Self.FK_tb_ItemSoldReciept_tb_QuantityItem">
+      <End Role="tb_QuantityItem" EntitySet="tb_QuantityItem" />
+      <End Role="tb_ItemSoldReciept" EntitySet="tb_ItemSoldReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ServiceReciept_tb_Receipt" Association="Self.FK_tb_ServiceReciept_tb_Receipt">
+      <End Role="tb_Receipt" EntitySet="tb_Receipt" />
+      <End Role="tb_ServiceReciept" EntitySet="tb_ServiceReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ServiceReciept_tb_Sevices" Association="Self.FK_tb_ServiceReciept_tb_Sevices">
+      <End Role="tb_Sevices" EntitySet="tb_Sevices" />
+      <End Role="tb_ServiceReciept" EntitySet="tb_ServiceReciept" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

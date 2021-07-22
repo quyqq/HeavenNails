@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HeavenNailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tb_AdditionCard">
+    <Key>
+      <PropertyRef Name="AIndex" />
+    </Key>
+    <Property Name="AIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Card">
+    <Key>
+      <PropertyRef Name="CIndex" />
+    </Key>
+    <Property Name="CIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BarCode" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ScanTime" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" />
+  </EntityType>
+  <EntityType Name="tb_ImportBills">
+    <Key>
+      <PropertyRef Name="IMIndex" />
+    </Key>
+    <Property Name="IMIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SUIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Total" Type="money" Nullable="false" />
+    <Property Name="ImageBill" Type="image" />
+  </EntityType>
+  <EntityType Name="tb_Item">
+    <Key>
+      <PropertyRef Name="IIndex" />
+    </Key>
+    <Property Name="IIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameItem" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="ImportPrice" Type="money" Nullable="false" />
+    <Property Name="SellingPrice" Type="money" Nullable="false" />
+    <Property Name="IMIndex" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="tb_ItemSoldReciept">
+    <Key>
+      <PropertyRef Name="SOIndex" />
+    </Key>
+    <Property Name="SOIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SellingPrice" Type="money" Nullable="false" />
+    <Property Name="QIIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="RIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_LoyaltyCard">
+    <Key>
+      <PropertyRef Name="LIndex" />
+    </Key>
+    <Property Name="LIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Addition" Type="money" Nullable="false" />
+    <Property Name="Discount" Type="float" />
+  </EntityType>
+  <EntityType Name="tb_QuantityItem">
+    <Key>
+      <PropertyRef Name="QIIndex" />
+    </Key>
+    <Property Name="QIIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="BarCode" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Sold" Type="bit" Nullable="false" />
+    <Property Name="IIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Receipt">
+    <Key>
+      <PropertyRef Name="RIndex" />
+    </Key>
+    <Property Name="RIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Time" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Total" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_ServiceReciept">
+    <Key>
+      <PropertyRef Name="SRIndex" />
+    </Key>
+    <Property Name="SRIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="RIndex" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="SIndex" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="NameService" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tb_Sevices">
+    <Key>
+      <PropertyRef Name="SIndex" />
+    </Key>
+    <Property Name="SIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameService" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Cost" Type="money" Nullable="false" />
+    <Property Name="Active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tb_Supplier">
+    <Key>
+      <PropertyRef Name="SUIndex" />
+    </Key>
+    <Property Name="SUIndex" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NameCompany" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="EMail" Type="nvarchar" MaxLength="200" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" />
+    <Property Name="Adress" Type="nvarchar" MaxLength="350" />
+    <Property Name="OtherInf" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_tb_ImportBills_tb_Supplier">
+    <End Role="tb_Supplier" Type="Self.tb_Supplier" Multiplicity="1" />
+    <End Role="tb_ImportBills" Type="Self.tb_ImportBills" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Supplier">
+        <PropertyRef Name="SUIndex" />
+      </Principal>
+      <Dependent Role="tb_ImportBills">
+        <PropertyRef Name="SUIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_Item_tb_ImportBills">
+    <End Role="tb_ImportBills" Type="Self.tb_ImportBills" Multiplicity="0..1" />
+    <End Role="tb_Item" Type="Self.tb_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_ImportBills">
+        <PropertyRef Name="IMIndex" />
+      </Principal>
+      <Dependent Role="tb_Item">
+        <PropertyRef Name="IMIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ItemSold_tb_QuantityItem">
+    <End Role="tb_QuantityItem" Type="Self.tb_QuantityItem" Multiplicity="1" />
+    <End Role="tb_ItemSoldReciept" Type="Self.tb_ItemSoldReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_QuantityItem">
+        <PropertyRef Name="QIIndex" />
+      </Principal>
+      <Dependent Role="tb_ItemSoldReciept">
+        <PropertyRef Name="QIIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ItemSold_tb_Receipt">
+    <End Role="tb_Receipt" Type="Self.tb_Receipt" Multiplicity="1" />
+    <End Role="tb_ItemSoldReciept" Type="Self.tb_ItemSoldReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Receipt">
+        <PropertyRef Name="RIndex" />
+      </Principal>
+      <Dependent Role="tb_ItemSoldReciept">
+        <PropertyRef Name="RIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_QuantityItem_tb_Item">
+    <End Role="tb_Item" Type="Self.tb_Item" Multiplicity="1" />
+    <End Role="tb_QuantityItem" Type="Self.tb_QuantityItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Item">
+        <PropertyRef Name="IIndex" />
+      </Principal>
+      <Dependent Role="tb_QuantityItem">
+        <PropertyRef Name="IIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ServiceReciept_tb_Receipt">
+    <End Role="tb_Receipt" Type="Self.tb_Receipt" Multiplicity="1" />
+    <End Role="tb_ServiceReciept" Type="Self.tb_ServiceReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Receipt">
+        <PropertyRef Name="RIndex" />
+      </Principal>
+      <Dependent Role="tb_ServiceReciept">
+        <PropertyRef Name="RIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tb_ServiceReciept_tb_Sevices">
+    <End Role="tb_Sevices" Type="Self.tb_Sevices" Multiplicity="0..1" />
+    <End Role="tb_ServiceReciept" Type="Self.tb_ServiceReciept" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tb_Sevices">
+        <PropertyRef Name="SIndex" />
+      </Principal>
+      <Dependent Role="tb_ServiceReciept">
+        <PropertyRef Name="SIndex" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="HeavenNailsModelStoreContainer">
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_AdditionCard" EntityType="Self.tb_AdditionCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Card" EntityType="Self.tb_Card" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ImportBills" EntityType="Self.tb_ImportBills" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Item" EntityType="Self.tb_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ItemSoldReciept" EntityType="Self.tb_ItemSoldReciept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_LoyaltyCard" EntityType="Self.tb_LoyaltyCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_QuantityItem" EntityType="Self.tb_QuantityItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Receipt" EntityType="Self.tb_Receipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_ServiceReciept" EntityType="Self.tb_ServiceReciept" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Sevices" EntityType="Self.tb_Sevices" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tb_Supplier" EntityType="Self.tb_Supplier" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tb_ImportBills_tb_Supplier" Association="Self.FK_tb_ImportBills_tb_Supplier">
+      <End Role="tb_Supplier" EntitySet="tb_Supplier" />
+      <End Role="tb_ImportBills" EntitySet="tb_ImportBills" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_Item_tb_ImportBills" Association="Self.FK_tb_Item_tb_ImportBills">
+      <End Role="tb_ImportBills" EntitySet="tb_ImportBills" />
+      <End Role="tb_Item" EntitySet="tb_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ItemSold_tb_QuantityItem" Association="Self.FK_tb_ItemSold_tb_QuantityItem">
+      <End Role="tb_QuantityItem" EntitySet="tb_QuantityItem" />
+      <End Role="tb_ItemSoldReciept" EntitySet="tb_ItemSoldReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ItemSold_tb_Receipt" Association="Self.FK_tb_ItemSold_tb_Receipt">
+      <End Role="tb_Receipt" EntitySet="tb_Receipt" />
+      <End Role="tb_ItemSoldReciept" EntitySet="tb_ItemSoldReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_QuantityItem_tb_Item" Association="Self.FK_tb_QuantityItem_tb_Item">
+      <End Role="tb_Item" EntitySet="tb_Item" />
+      <End Role="tb_QuantityItem" EntitySet="tb_QuantityItem" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ServiceReciept_tb_Receipt" Association="Self.FK_tb_ServiceReciept_tb_Receipt">
+      <End Role="tb_Receipt" EntitySet="tb_Receipt" />
+      <End Role="tb_ServiceReciept" EntitySet="tb_ServiceReciept" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tb_ServiceReciept_tb_Sevices" Association="Self.FK_tb_ServiceReciept_tb_Sevices">
+      <End Role="tb_Sevices" EntitySet="tb_Sevices" />
+      <End Role="tb_ServiceReciept" EntitySet="tb_ServiceReciept" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

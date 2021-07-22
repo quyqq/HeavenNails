@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="HeavenNails" Class="HeavenNailsModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=HeavenNails;Integrated Security=True" SettingsObjectName="HeavenNails.Properties.Settings" SettingsPropertyName="HeavenNailsConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tb_Card" Member="tb_Cards">
+    <Type Name="tb_Card">
+      <Column Name="CIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ScanTime" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Supplier" Member="tb_Suppliers">
+    <Type Name="tb_Supplier">
+      <Column Name="SUIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameCompany" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="EMail" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Phone" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Adress" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="OtherInf" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="tb_Supplier_tb_ImportBill" Member="tb_ImportBills" ThisKey="SUIndex" OtherKey="SUIndex" Type="tb_ImportBill" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_ImportBills" Member="tb_ImportBills">
+    <Type Name="tb_ImportBill">
+      <Column Name="IMIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="ImageBill" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="tb_ImportBill_tb_Item" Member="tb_Items" ThisKey="IMIndex" OtherKey="IMIndex" Type="tb_Item" />
+      <Association Name="tb_Supplier_tb_ImportBill" Member="tb_Supplier" ThisKey="SUIndex" OtherKey="SUIndex" Type="tb_Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Item" Member="tb_Items">
+    <Type Name="tb_Item">
+      <Column Name="IIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameItem" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="SellingPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="IMIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Association Name="tb_Item_tb_QuantityItem" Member="tb_QuantityItems" ThisKey="IIndex" OtherKey="IIndex" Type="tb_QuantityItem" />
+      <Association Name="tb_ImportBill_tb_Item" Member="tb_ImportBill" ThisKey="IMIndex" OtherKey="IMIndex" Type="tb_ImportBill" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_ItemSoldReciept" Member="tb_ItemSoldReciepts">
+    <Type Name="tb_ItemSoldReciept">
+      <Column Name="SOIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SellingPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="QIIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="RIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="ImportPrice" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="tb_QuantityItem_tb_ItemSoldReciept" Member="tb_QuantityItem" ThisKey="QIIndex" OtherKey="QIIndex" Type="tb_QuantityItem" IsForeignKey="true" />
+      <Association Name="tb_Receipt_tb_ItemSoldReciept" Member="tb_Receipt" ThisKey="RIndex" OtherKey="RIndex" Type="tb_Receipt" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_LoyaltyCard" Member="tb_LoyaltyCards">
+    <Type Name="tb_LoyaltyCard">
+      <Column Name="LIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Addition" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Discount" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_QuantityItem" Member="tb_QuantityItems">
+    <Type Name="tb_QuantityItem">
+      <Column Name="BarCode" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Sold" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="IIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="QIIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="tb_QuantityItem_tb_ItemSoldReciept" Member="tb_ItemSoldReciepts" ThisKey="QIIndex" OtherKey="QIIndex" Type="tb_ItemSoldReciept" />
+      <Association Name="tb_Item_tb_QuantityItem" Member="tb_Item" ThisKey="IIndex" OtherKey="IIndex" Type="tb_Item" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Receipt" Member="tb_Receipts">
+    <Type Name="tb_Receipt">
+      <Column Name="RIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Time" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Total" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="Cash" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Eftpos" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="GivenCash" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Change" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="tb_Receipt_tb_ItemSoldReciept" Member="tb_ItemSoldReciepts" ThisKey="RIndex" OtherKey="RIndex" Type="tb_ItemSoldReciept" />
+      <Association Name="tb_Receipt_tb_ServiceReciept" Member="tb_ServiceReciepts" ThisKey="RIndex" OtherKey="RIndex" Type="tb_ServiceReciept" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_ServiceReciept" Member="tb_ServiceReciepts">
+    <Type Name="tb_ServiceReciept">
+      <Column Name="SRIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="RIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="SIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL" CanBeNull="false" />
+      <Column Name="NameService" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="tb_Receipt_tb_ServiceReciept" Member="tb_Receipt" ThisKey="RIndex" OtherKey="RIndex" Type="tb_Receipt" IsForeignKey="true" />
+      <Association Name="tb_Sevice_tb_ServiceReciept" Member="tb_Sevice" ThisKey="SIndex" OtherKey="SIndex" Type="tb_Sevice" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tb_Sevices" Member="tb_Sevices">
+    <Type Name="tb_Sevice">
+      <Column Name="SIndex" Type="System.Decimal" DbType="Decimal(18,0) NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NameService" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="tb_Sevice_tb_ServiceReciept" Member="tb_ServiceReciepts" ThisKey="SIndex" OtherKey="SIndex" Type="tb_ServiceReciept" />
+    </Type>
+  </Table>
+</Database>
