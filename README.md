@@ -11,4 +11,4 @@ Future requiremts:
 
 Can be synced website booking, feedback by using API call (URIs)
 
-This project is pedding at the moment
+This project is pending at the moment
