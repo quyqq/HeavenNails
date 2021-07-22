@@ -1,2 +1,6 @@
 # HeavenNails
-Please read readme file
+This project requirement:
+
+Cashier system:
+
+
